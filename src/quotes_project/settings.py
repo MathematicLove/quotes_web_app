@@ -13,7 +13,6 @@ else:
 DEBUG = os.getenv('DJANGO_DEBUG', '1').lower() in ('1', 'true', 'yes')
 print(f"DEBUG setting: {DEBUG}")
 
-# ALLOWED_HOSTS с логированием
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
 
@@ -47,7 +46,6 @@ WSGI_APPLICATION = 'quotes_project.wsgi.application'
 
 import dj_database_url
 
-# Database configuration
 DATABASE_URL = os.getenv('DATABASE_URL')
 print(f"DATABASE_URL: {DATABASE_URL[:50] if DATABASE_URL else 'Not set'}...")
 
@@ -75,7 +73,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'quotes/static'),
 ]
 
-# Security settings for production
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
