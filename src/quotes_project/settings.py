@@ -2,9 +2,20 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-secret')
+
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+if not SECRET_KEY:
+    print("WARNING: DJANGO_SECRET_KEY not set, using fallback key")
+    SECRET_KEY = 'dev-secret-key-for-development-only-change-in-production'
+else:
+    print(f"SECRET_KEY loaded from environment: {SECRET_KEY[:10]}...")
+
 DEBUG = os.getenv('DJANGO_DEBUG', '1').lower() in ('1', 'true', 'yes')
+print(f"DEBUG setting: {DEBUG}")
+
+# ALLOWED_HOSTS с логированием
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -38,10 +49,13 @@ import dj_database_url
 
 # Database configuration
 DATABASE_URL = os.getenv('DATABASE_URL')
+print(f"DATABASE_URL: {DATABASE_URL[:50] if DATABASE_URL else 'Not set'}...")
+
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
+    print("Using DATABASE_URL from environment")
 else:
     DATABASES = {
         'default': {
@@ -53,6 +67,7 @@ else:
             'PORT': '5432',
         }
     }
+    print("Using local database configuration")
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
