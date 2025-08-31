@@ -1,0 +1,29 @@
+{% extends 'quotes/base.html' %}
+{% block title %}Случайная цитата{% endblock %}
+{% block content %}
+  {% if msg %}
+    <p class="text-slate-600">{{ msg }}</p>
+  {% else %}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+    <div class="bg-white rounded-2xl shadow p-6">
+      <h1 class="text-xl font-semibold mb-3">«Случайная цитата»</h1>
+      <blockquote class="text-2xl leading-snug">“{{ quote.text }}”</blockquote>
+      <p class="mt-3 text-slate-500">— {{ quote.source.title }}</p>
+      <div class="mt-4 flex items-center gap-3">
+        <button data-like="{{ quote.id }}" class="px-3 py-1 rounded bg-green-100 hover:bg-green-200">Лайк <span id="likes-{{ quote.id }}">{{ quote.likes }}</span></button>
+        <button data-dislike="{{ quote.id }}" class="px-3 py-1 rounded bg-red-100 hover:bg-red-200">Дизлайк <span id="dislikes-{{ quote.id }}">{{ quote.dislikes }}</span></button>
+        <span class="ml-auto text-sm text-slate-400">Просмотры: {{ quote.views }}</span>
+      </div>
+    </div>
+    <div>
+      {% if image_url %}
+        <img src="{{ image_url }}" alt="Кадр/обложка" class="w-full rounded-2xl shadow">
+      {% else %}
+        <div class="p-6 bg-white rounded-2xl shadow text-slate-500">
+          Картинка не найдена — можно задать URL в источнике.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

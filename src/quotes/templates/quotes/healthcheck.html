@@ -1,0 +1,15 @@
+{% extends 'quotes/base.html' %}
+{% block title %}Проверка{% endblock %}
+{% block content %}
+  {% if ok %}
+  <div class="p-6 bg-green-50 border border-green-200 rounded-2xl">
+    <div class="text-2xl font-semibold mb-2">Со мной всё хорошо!</div>
+    <p>Посмотрим цитаты? <a class="underline" href="{% url 'quotes:home' %}">Тык ➜</a></p>
+  </div>
+  {% else %}
+  <div class="p-6 bg-red-50 border border-red-200 rounded-2xl">
+    <div class="text-2xl font-semibold mb-2">Что-то пошло не так 😕</div>
+    <p>База недоступна.</p>
+  </div>
+  {% endif %}
+{% endblock %}

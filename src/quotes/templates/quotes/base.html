@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Цитаты{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  {% load static %}
+  <script defer src="{% static 'quotes/app.js' %}"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+  <nav class="p-4 bg-white shadow">
+    <div class="max-w-4xl mx-auto flex gap-4">
+      <a class="font-semibold hover:underline" href="{% url 'quotes:home' %}">Случайная</a>
+      <a class="hover:underline" href="{% url 'quotes:top' %}">Топ-10</a>
+      <a class="hover:underline" href="{% url 'quotes:search' %}">Поиск по фильму/книге</a>
+      <a class="hover:underline" href="{% url 'quotes:add' %}">Добавить</a>
+    </div>
+  </nav>
+  <main class="max-w-4xl mx-auto p-4">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="max-w-4xl mx-auto p-4 text-sm text-slate-500">
+    <a class="underline" href="{% url 'quotes:healthcheck' %}">/healthcheck</a>
+  </footer>
+</body>
+
+</html>

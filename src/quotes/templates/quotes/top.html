@@ -1,0 +1,21 @@
+{% extends 'quotes/base.html' %}
+{% block title %}Топ цитат{% endblock %}
+{% block content %}
+<h1 class="text-xl font-semibold mb-4">Топ-10 по лайкам</h1>
+<ol class="space-y-3">
+  {% for q in quotes %}
+  <li class="bg-white rounded-2xl shadow p-4">
+    <div class="flex justify-between items-start gap-4">
+      <div>
+        <div class="text-lg">“{{ q.text }}”</div>
+        <div class="text-slate-500">— {{ q.source.title }}</div>
+      </div>
+      <div class="text-right text-sm text-slate-500">
+        <div>👍 {{ q.likes }} | 👎 {{ q.dislikes }}</div>
+        <div>👁️ {{ q.views }}</div>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+{% endblock %}

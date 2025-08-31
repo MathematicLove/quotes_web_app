@@ -1,0 +1,35 @@
+{% extends 'quotes/base.html' %}
+{% block title %}Поиск по источнику{% endblock %}
+{% block content %}
+<h1 class="text-xl font-semibold mb-4">Цитаты по названию</h1>
+
+<form class="mb-6 flex gap-2" method="get">
+  <input name="q" value="{{ query }}" placeholder="Название фильма / книги" class="w-full px-3 py-2 rounded border">
+  <button class="px-4 py-2 rounded bg-slate-800 text-white">Искать</button>
+</form>
+
+{% if source %}
+  <h2 class="text-lg font-semibold mb-3">Источник: {{ source.title }}</h2>
+  {% if quotes %}
+    <ul class="space-y-3">
+      {% for q in quotes %}
+      <li class="bg-white rounded-2xl shadow p-4">
+        <div class="text-lg">“{{ q.text }}”</div>
+        <div class="mt-1 text-sm text-slate-500">Вес: {{ q.weight }} · 👍 {{ q.likes }} · 👎 {{ q.dislikes }}</div>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-slate-500">Цитат пока нет. Добавьте первую!</p>
+  {% endif %}
+{% elif query %}
+  <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+    <p class="mb-2">Не нашли «{{ query }}». Хотите добавить новый источник и цитату?</p>
+    <form method="post">
+      {% csrf_token %}
+      {{ quick_form.as_p }}
+      <button class="px-4 py-2 rounded bg-green-600 text-white">Добавить</button>
+    </form>
+  </div>
+{% endif %}
+{% endblock %}

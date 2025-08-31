@@ -1,0 +1,16 @@
+{% extends 'quotes/base.html' %}
+{% block title %}Добавить цитату{% endblock %}
+{% block content %}
+<h1 class="text-xl font-semibold mb-4">Добавить цитату</h1>
+<form method="post" class="space-y-4">
+  {% csrf_token %}
+  <div class="bg-white p-4 rounded-2xl shadow">
+    <h2 class="font-semibold mb-2">Цитата</h2>
+    {{ qform.as_p }}
+  </div>
+  <div class="text-slate-500 text-sm">
+    Источник можно создать заранее в админке, либо выбрать существующий.
+  </div>
+  <button class="px-4 py-2 rounded bg-slate-800 text-white">Сохранить</button>
+</form>
+{% endblock %}
