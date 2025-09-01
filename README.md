@@ -14,11 +14,11 @@
 
 ### Схема БД и ER-диаграмма
 <figure>
-  <img src="./docs/DB_Schema.png" alt="Схема БД" width="900">
+  <img src="./docs/DB_Schema-modified.png" alt="Схема БД" width="900">
 </figure>
 
 <figure>
-  <img src="./docs/ER.png" alt="ER-диаграмма" width="900">
+  <img src="./docs/ER-modified.png" alt="ER-диаграмма" width="900">
 </figure>
 
 ### Административная панель
