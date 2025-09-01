@@ -12,6 +12,15 @@
 - **Система лайков** - голосование за цитаты
 - **API** - REST API для получения случайных цитат
 
+### Схема БД и ER-диаграмма
+<figure>
+  <img src="./docs/DB_Schema.png" alt="Схема БД" width="900">
+</figure>
+
+<figure>
+  <img src="./docs/ER.png" alt="ER-диаграмма" width="900">
+</figure>
+
 ### Административная панель
 - **Управление источниками** - добавление, редактирование, удаление фильмов/книг
 - **Управление цитатами** - создание, модерация, настройка веса
@@ -72,7 +81,7 @@ src/
 1. **Клонирование и настройка**
 ```bash
 git clone <repository-url>
-cd 4_ITSolution
+cd quotes_web_app
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 # или
@@ -118,8 +127,8 @@ python manage.py runserver
 
 1. **Клонирование проекта**
 ```bash
-git clone <repository-url>
-cd quotes_web
+git clone [<repository-url>](https://github.com/MathematicLove/quotes_web_app/)
+cd quotes_web_app
 ```
 
 2. **Настройка переменных окружения**
