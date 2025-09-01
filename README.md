@@ -2,7 +2,6 @@
 
 Веб-приложение на Django для хранения, отображения и управления цитатами из фильмов, книг и других источников.
 [**Просмотрите цитаты** или *добавьте свои* в Quotes](https://quotes-web-app-hslc.onrender.com)
-## Возможности
 
 ### Основной функционал
 - **Случайные цитаты** - показ случайной цитаты с учетом веса
@@ -12,13 +11,25 @@
 - **Система лайков** - голосование за цитаты
 - **API** - REST API для получения случайных цитат
 
-### Схема БД и ER-диаграмма
+### Аналитика (Схема БД, ER-диаграмма, use-cases)
 <figure>
   <img src="./docs/DB_Schema-modified.png" alt="Схема БД" width="900">
+  <figcaption>Рис.1 Схема базы данных</figcaption>
 </figure>
 
 <figure>
   <img src="./docs/ER-modified.png" alt="ER-диаграмма" width="900">
+  <figcaption>Рис.2 Диаграмма Отношений Сущностей (ER)</figcaption>
+</figure>
+
+<figure>
+  <img src="./docs/usecase0-modified.png" alt="Схема БД" width="900">
+  <figcaption>Рис.3 Use-case (уровень 0)</figcaption>
+</figure>
+
+<figure>
+  <img src="./docs/usecase1-modified.png" alt="ER-диаграмма" width="900">
+  <figcaption>Рис.4 Use-case (уровень 1)</figcaption>
 </figure>
 
 ### Административная панель
