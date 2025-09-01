@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Пример: ./google_image_to_html.sh "The Matrix" "There is no spoon"
 set -e
 TITLE="$1"
 QUOTE="$2"
