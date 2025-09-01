@@ -60,19 +60,13 @@ src/
 
 ## Стек
 
-- **Backend**: Django 5.2.5
-- **База данных**: PostgreSQL 16
+- **Backend**: Django 
+- **База данных**: PostgreSQL 
 - **Сервер**: Gunicorn
+- **Рвзвертка**: Render
 - **Контейнеризация**: Docker + Docker Compose
 - **Фронтенд**: HTML + Tailwind CSS + JavaScript
 - **Кэширование**: Django Cache Framework
-- **Рвзвертка**: Render
-
-## Требования
-
-- Python 3.12+
-- PostgreSQL 16+
-- Docker & Docker Compose (для контейнерной версии)
 
 ## Запуск проекта
 
