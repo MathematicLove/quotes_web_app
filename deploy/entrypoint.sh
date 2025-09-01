@@ -23,7 +23,7 @@ if not U.objects.filter(email=email).exists():
 PY
 fi
 
-echo "=== DJANGO DIAGNOSTICS ==="
+echo "DJANGO PART!"
 python manage.py shell <<'PY'
 import os
 print("=== ENVIRONMENT VARIABLES ===")
